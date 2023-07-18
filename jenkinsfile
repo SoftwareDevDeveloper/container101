@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        myuser = credential ('dockerhub-user')
-        mypassword = credential ('dockerhub-password')
+        myuser = credentials ('dockerhub-user')
+        mypassword = credentials ('dockerhub-password')
     }
 
     stages {
@@ -27,8 +27,8 @@ pipeline {
                 docker login -u $myuser -p $mypassword
                 docker push 02271589/marcifx:v1
               '''
-        }
-    }
+           }
+       }
     }
 
     post {
