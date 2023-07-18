@@ -6,8 +6,24 @@ pipeline {
     stages {
         stage ("download the code") {
             steps {
-                sh "git clone "
+                sh 'git clone https://github.com/SoftwareDevDeveloper/container101.git'
             }
+        }
+
+        stage ('build image') {
+            steps {
+                sh '''
+                   cd container101
+                   docker build -t shegoj/marcifx:v1
+
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            deleteDir()
         }
     }
 }
