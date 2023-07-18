@@ -28,6 +28,14 @@ pipeline {
                 docker push shegoj/marcifx:v1
               '''
            }
+        }
+       stage ('deploy app') {
+            steps {
+               sh '''
+                docker rm -f nationapp | echo ""
+                docker run --name nationapp --rm -d -p 5007:5000 shegoj/marcifx:v2
+              '''
+           }
        }
     }
 
