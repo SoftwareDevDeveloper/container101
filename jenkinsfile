@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh '''
                    cd container101
-                   docker build -t shegoj/marcifx:v1
+                   docker build -t shegoj/marcifx:v1 .
 
                 '''
             }
