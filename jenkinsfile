@@ -33,7 +33,7 @@ pipeline {
        stage ('deploy app') {
             steps {
                sh '''
-                docker run --name nationapps --rm -d -p 5007:5000 shegoj/marcifx:$version
+                docker run --name nationapps --rm -d -p 5007:5000 02271589/marcifx:$version
               '''
            }
        }
