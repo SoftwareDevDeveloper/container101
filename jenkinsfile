@@ -25,7 +25,7 @@ pipeline {
             steps {
                sh '''
                 docker login -u $myuser -p $mypassword
-                docker push 02271589/marcifx:v1
+                docker push shegoj/marcifx:v1
               '''
            }
        }
