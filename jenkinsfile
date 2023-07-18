@@ -1,12 +1,13 @@
 pipeline {
     agent any
+
     environment {
         myuser = credential ('dockerhub-user')
         mypassword = credential ('dockerhub-password')
     }
 
     stages {
-        stage ("download the code") {
+        stage ('download the code') {
             steps {
                 sh 'git clone https://github.com/SoftwareDevDeveloper/container101.git'
             }
@@ -17,18 +18,16 @@ pipeline {
                 sh '''
                    cd container101
                    docker build -t shegoj/marcifx:v1 .
-
                 '''
             }
         }
         stage ('publish image') {
             steps {
-                '''
+               sh '''
                 docker login -u $myuser -p $mypassword
-                sh docker push 02271589/marcifx:v1
-                '''
+                docker push 02271589/marcifx:v1
+              '''
         }
-
     }
 
     post {
@@ -36,4 +35,5 @@ pipeline {
             deleteDir()
         }
     }
+    
 }
