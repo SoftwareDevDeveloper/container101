@@ -4,6 +4,7 @@ pipeline {
     environment {
         myuser = credentials ('dockerhub-user')
         mypassword = credentials ('dockerhub-password')
+        version = "v6"
     }
 
     stages {
@@ -17,7 +18,7 @@ pipeline {
             steps {
                 sh '''
                    cd container101
-                   docker build -t shegoj/marcifx:v1 .
+                   docker build -t shegoj/marcifx:$version .
                 '''
             }
         }
@@ -25,15 +26,14 @@ pipeline {
             steps {
                sh '''
                 docker login -u $myuser -p $mypassword
-                docker push shegoj/marcifx:v1
+                docker push shegoj/marcifx:$version
               '''
            }
         }
        stage ('deploy app') {
             steps {
                sh '''
-                docker rm -f nationapp | echo ""
-                docker run --name nationapp --rm -d -p 5007:5000 shegoj/marcifx:v2
+                docker run --name nationapp --rm -d -p 5007:5000 shegoj/marcifx:$version
               '''
            }
        }
