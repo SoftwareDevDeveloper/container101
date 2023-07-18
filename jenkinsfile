@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh '''
                    cd container101
-                   docker build -t shegoj/marcifx:$version .
+                   docker build -t 02271589/marcifx:$version .
                 '''
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                sh '''
                 docker login -u $myuser -p $mypassword
-                docker push shegoj/marcifx:$version
+                docker push 02271589/marcifx:$version
               '''
            }
         }
