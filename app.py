@@ -19,7 +19,7 @@ def lookup(country):
     return value 
 
 
-@app.route("/getsaveregion/<country>/<city>")
+@app.route("/saveregion/<country>/<city>")
 def savedata(country, city):
     value ="pass"
     try:
