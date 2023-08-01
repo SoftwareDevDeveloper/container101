@@ -22,6 +22,7 @@ pipeline {
                 '''
             }
         }
+
         stage ('publish image') {
             steps {
                sh '''
@@ -30,6 +31,7 @@ pipeline {
               '''
            }
         }
+        
        stage ('deploy app') {
             steps {
                sh '''
