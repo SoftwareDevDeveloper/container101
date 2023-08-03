@@ -4,6 +4,8 @@ services:
      image: nginx
      ports:
        - 80:80
+     volumes:
+       - ./html:/usr/share/nginx/html:ro
      depends_on:
        - api-3
 
