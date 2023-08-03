@@ -15,7 +15,7 @@ def getregion():
 
     try:
         city = r.get (country)
-        value = '''<h1> {} is in {} </h1>'''.format(city, country)
+        value = '''<h1> {} is in {} </h1><p><a href= "http://54.228.33.230">home</a>'''.format(city.upper(), country.upper())
     except:
         pass
 
@@ -24,14 +24,15 @@ def getregion():
 
 @app.route("/saveregion", methods = ["GET"])
 def saveregion():
+    value = "<h1> failed to save </h1>"
+
     country = request.args.get("country")
     city = request.args.get("city")
 
-    value = "<h1> failed to save </h1>"
 
     try:
-        r.set(country, city)
-        value = '''<h1> {} is in {} saved successfully </h1>'''.format(city, country)
+        r.set(country,city)
+        value = '''<h1> {} is in {} saved successfully </h1>'''.format(city.upper(), country.upper())
     except:
         pass
         
