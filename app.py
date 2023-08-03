@@ -29,9 +29,8 @@ def saveregion():
     country = request.args.get("country")
     city = request.args.get("city")
 
-
     try:
-        r.set(country,city)
+        r.set(country, city)
         value = '''<h1> {} is in {} saved successfully </h1>'''.format(city.upper(), country.upper())
     except:
         pass
