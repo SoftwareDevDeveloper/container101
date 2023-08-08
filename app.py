@@ -3,7 +3,7 @@ import redis
 
 app = Flask(__name__)
 # regions = {"uk":"London", "nigeria":"Lagos", "southafrica":"Johannesburg", "usa":"DC", "us":"DC","ghana":"accra", "togo":"lome"}
-version = "1.7"
+version = "1.7.1"
 
 r = redis.Redis(host="cache-server", port=6379)
 
