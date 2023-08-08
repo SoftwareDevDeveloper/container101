@@ -22,7 +22,7 @@ app.route("/saveregion/<country>/<city>")
 def savedata(country, city):
     value = "pass"
     try:
-        r.set(country, city)
+        value = r.set(country, city)
     except:
         value = "fail"
     return value
