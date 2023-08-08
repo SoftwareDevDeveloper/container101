@@ -4,11 +4,10 @@ services:
      image: 02271589/ruufman:v10
      command: flask run --host=0.0.0.0 --port=5000
      ports:
-       - 5002:5000
+        - 5002:5000
      environment:
-       - FLASK_APP=app.py
-     depends_on:
-       - cache-server
+        - FLASK_APP=app.py
+        - cache-server
 
   cache-server:
       image:  redis
