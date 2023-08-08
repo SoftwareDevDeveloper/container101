@@ -10,11 +10,11 @@ r = redis.Redis(host="cache-server", port=6379)
 
 @app.route("/getregion/<country>")
 def lookup(country):
-    value = "N/A"
+    value = "pass"
     try:
         value = r.get (country)
     except:
-        pass
+        value = "fail"
     return value
 
 
