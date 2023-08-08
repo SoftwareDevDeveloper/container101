@@ -20,11 +20,11 @@ def lookup(country):
 
 app.route("/saveregion/<country>/<city>")
 def savedata(country, city):
-    value = "pass"
+    value = "N/A"
     try:
         value = r.set(country, city)
     except:
-        value = "fail"
+        pass
     return value
 
 
