@@ -29,8 +29,7 @@ pipeline {
                 docker login -u $myuser -p $mypassword
                 docker push 02271589/marcifx:$version
               '''
-           }
-        }
+           
         
        stage ('deploy app') {
             steps {  
